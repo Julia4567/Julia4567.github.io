@@ -1,0 +1,112 @@
+table {
+     
+   
+       
+    text-align: center;
+    border-collapse: separate;
+    font-size: 15px;
+    border-spacing: 5px;
+    background-color: #ababab;
+    border: 16px solid #ababab;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    justify-items: center;
+
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #9a6262;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #ffffff;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #898989;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+
+.text-center {
+    text-align: center!important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 49px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+
+td img {
+    width: 20px;
+    height: 20px;
+}
+
+.collapsible {
+    /*transition: max-height 0.2s ease-out;*/
+    cursor: pointer;
+    padding: 18px 30px;
+    border: none;
+    text-align: left;
+    outline: none;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.collapsible:hover {
+    transition: 0.8s;
+    background-color: #ababab;
+}
+
+.collapsible:active {
+    width: 100%;
+}
+
+.button8 {
+  display: inline-block;
+  color: #681c1c;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: .5em 2em;
+  outline: none;
+  border: 2px solid;
+  border-radius: 1px;
+  transition: 0.2s;
+position: relative;
+left: 40%;
+
+} 
+.button8:hover { background: rgba(255,255,255,.2); }
+.button8:active { background: white; }
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    /*transition: max-height 0.2s inherit;*/
+    margin-bottom: 46px;
+    -webkit-transition: all 1s cubic-bezier(.89, .11, .12, 1);
+    -moz-transition: all 1s cubic-bezier(.89, .11, .12, 1);
+}
+
+.graph {
+    border-collapse: separate;
+    border: 21px solid #ababab;
+    border-radius: 15px;
+    margin-bottom: 46px;
+}
+
+.end {
+    color: #DAD8D8;
+}
