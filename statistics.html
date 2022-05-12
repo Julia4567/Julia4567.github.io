@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Статистика</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,600&display=swap"
+          rel="stylesheet">
+    <link rel="icon" href="image/favicon.ico">
+
+
+
+</head>
+<body id="top">
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <a href="index.html" class="header__logo-link">
+                        <img src="image/logo.svg" alt="Home">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="index.html" class="header__link">Хамелеоны</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="statistics.html" class="header__link">Статистика хамелеонов</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="cats.html" class="header__link">Котики API</a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="wrapper">
+
+            <div class="item">
+                <h2 class="text-center">График распостранения видов хамелеонов</h2>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-8"><canvas id="myChart"></canvas></div>
+                </div>
+                <div class="row justify-content-center">
+                    <select class="col-12 col-sm-8 col-md-1" name="graph-color" id="graph-color">
+                        <option value="red">красный</option>
+                        <option value="green">зеленый</option>
+                        <option value="blue">синий</option>
+                    </select>
+                    <button type="button" id="graph-color-btn" class="button8">
+                        Поменять
+                        цвет
+                    </button>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <h2 class="text-center">Таблица</h2>
+                <div class="col-md-5">
+                    <table id="graph-table" class="table__content">
+                        <thead class="table">
+                        <th scope="col">Латинское название</th>
+                        <th scope="col">Количество видов</th>
+                        </th>
+                        <tbody>
+                            <tr>
+                                <td>Trioceros</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>Bradypodion</td>
+                                <td>17</td>
+                            </tr>
+                            <tr>
+                                <td>Brookesia</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>Calumma</td>
+                                <td>38</td>
+                            </tr>
+                            <tr>
+                                <td>Chamaeleo</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>Furcifer</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>Kinyongia</td>
+                                <td>23</td>
+                            </tr>
+                            <tr>
+                                <td>Palleon</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Rhampholeon</td>
+                                <td>19</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jarts.js"></script>
+
+
+        <script type="text/javascript">
+            let table = document.querySelector("#graph-table"),
+                labels = [],
+                values = [];
+
+            table.querySelectorAll("tbody td:first-child").forEach(country => {
+                labels.push(country.innerHTML);
+            });
+
+            table.querySelectorAll("tbody td:nth-child(2)").forEach(value => {
+                values.push(value.innerHTML);
+            });
+
+            let data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Количество видов хамелеонов',
+                    backgroundColor: 'rgb(220, 53, 69)',
+                    borderColor: 'rgb(220, 53, 69)',
+                    data: values,
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {}
+            };
+
+            const RED = "rgb(220, 53, 69)";
+            const GREEN = "rgb(25, 135, 84)";
+            const BLUE = "rgb(13, 110, 253)";
+
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+            document.querySelector("#graph-color-btn").onclick = () => {
+                switch (document.querySelector("#graph-color").value) {
+                    case "red":
+                        var color = RED;
+                        break;
+                    case "green":
+                        var color = GREEN;
+                        break;
+                    case "blue":
+                        var color = BLUE;
+                        break;
+                }
+
+                data.datasets[0].backgroundColor = color;
+                data.datasets[0].borderColor = color;
+                myChart.update();
+            }
+        </script>
+
+        </main>
+</body>
+
+</html>
